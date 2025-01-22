@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+h1 {
+    color: #4CAF50;
+}
+form {
+    margin: 20px auto;
+}
+input, button {
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+}
+#console {
+    border: 1px solid #ddd;
+    padding: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: 20px;
+    text-align: left;
+}
+.log {
+    font-family: monospace;
+}
+.success {
+    color: green;
+}
+.error {
+    color: red;
+}
+.processing {
+    color: orange;
+}

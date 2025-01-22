@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Papa from 'papaparse';
 import * as XLSX from 'xlsx';
-import '../public/styles.css';
 
 export default function Home() {
     const [logs, setLogs] = useState([]);
@@ -59,7 +58,7 @@ export default function Home() {
 
                 setProcessing(false);
                 generateExcel(resultsData);
-                logMessage('🚀 Proceso completado. Archivo Excel descargado.', 'success'); // Mensaje final
+                logMessage('🚀 Proceso completado. Archivo Excel descargado.', 'success');
             },
         });
     };
@@ -75,21 +74,23 @@ export default function Home() {
     };
 
     return (
-        <div>
-            <h1>Revisar correos en Active Campaign</h1>
+        <div style={{ textAlign: 'center', marginTop: '50px', fontFamily: 'Arial, sans-serif' }}>
+            <h1 style={{ fontSize: '2rem', color: '#4CAF50' }}>Procesador CSV y Verificador de Correos</h1>
             <form>
                 <label htmlFor="csvFile">Carga tu archivo CSV:</label>
+                <br />
                 <input
                     type="file"
                     id="csvFile"
                     accept=".csv"
                     onChange={(e) => processCSV(e.target.files[0])}
                     disabled={processing}
+                    style={{ padding: '10px', margin: '10px', fontSize: '16px' }}
                 />
             </form>
-            <div id="console">
+            <div style={{ marginTop: '20px', border: '1px solid #ddd', padding: '10px', maxHeight: '200px', overflowY: 'auto', textAlign: 'left' }}>
                 {logs.map((log, index) => (
-                    <div key={index} className={`log ${log.type}`}>
+                    <div key={index} style={{ fontFamily: 'monospace', color: log.type === 'success' ? 'green' : log.type === 'error' ? 'red' : 'orange' }}>
                         {log.message}
                     </div>
                 ))}

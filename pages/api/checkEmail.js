@@ -20,9 +20,6 @@ export default async function handler(req, res) {
             }
         } catch (error) {
             console.error('Error al consultar la API externa:', error.message);
-            if (error.response) {
-                console.error('Datos de respuesta de error:', error.response.data);
-            }
             res.status(500).json({ email, status: 'error', message: error.message });
         }
     } else {
